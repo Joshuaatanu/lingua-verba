@@ -7,8 +7,10 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { useFonts } from "expo-font";
+import { useRouter } from "expo-router";
 
 export default function Index() {
+  const router = useRouter();
   const [fontsLoaded] = useFonts({
     unbounded: require("@/assets/fonts/Unbounded-SemiBold.ttf"),
   });
@@ -16,6 +18,11 @@ export default function Index() {
   if (!fontsLoaded) {
     return null;
   }
+
+  const handlePress = () => {
+    router.push("/translate");
+  };
+
   return (
     <ScrollView style={styles.container}>
       <View>
@@ -32,7 +39,7 @@ export default function Index() {
           <Text style={{ color: "#31AA45" }}>Igala</Text>
         </Text>
       </View>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={handlePress}>
         <Text style={styles.buttonText}>Get Started</Text>
       </TouchableOpacity>
     </ScrollView>
