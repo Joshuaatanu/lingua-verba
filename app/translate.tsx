@@ -32,7 +32,7 @@ export default function TranslatePage() {
   const handleTranslate = async () => {
     try {
       setLoading(true);
-      const response = await fetch("http://10.130.137.16:5000/translate", {
+      const response = await fetch("https://api-ex6d.onrender.com/translate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ "english-text": inputText }),
